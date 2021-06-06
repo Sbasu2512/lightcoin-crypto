@@ -22,6 +22,17 @@ class Withdrawal {
 
 }
 
+class deposits {
+
+  constructor(amount){
+    this.amount = amount ;
+  }
+
+  deposit(){
+    balance += this.amount;
+  }
+}
+
 
 
 
