@@ -28,7 +28,7 @@ class deposits {
     this.amount = amount ;
   }
 
-  deposit(){
+  commit(){
     balance += this.amount;
   }
 }
@@ -46,5 +46,9 @@ console.log('Transaction 1:', t1);
 t2 = new Withdrawal(9.99);
 t2.commit();
 console.log('Transaction 2:', t2);
+
+t3 = new deposits(100);
+t3.commit();
+console.log('Transaction 3:', t3);
 
 console.log('Balance:', balance);
