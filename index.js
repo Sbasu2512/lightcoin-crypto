@@ -10,12 +10,7 @@ Don't allow withdrawals that exceed the remaining balance of the account
 */
 //let balance = 500.00;
 
-class Withdrawal {
-
-  constructor(amount, account) {
-    this.amount = amount;
-    this.account = account;
-  }
+class Withdrawal extends Transaction {
 
   commit() {
     this.account.balance -= this.amount;
@@ -23,12 +18,7 @@ class Withdrawal {
 
 }
 
-class deposits {
-
-  constructor(amount, account){
-    this.amount = amount ;
-     this.account = account;
-  }
+class deposits extends Transaction{
 
   commit(){
     this.account.balance += this.amount;
@@ -43,6 +33,12 @@ class Account {
   }
 }
 
+class Transaction {
+  constructor(amount,account){
+    this.account = account;
+    this.amount = amountl
+  }
+}
 
 // DRIVER CODE BELOW
 // We use the code below to "drive" the application logic above and make sure it's working as expected
