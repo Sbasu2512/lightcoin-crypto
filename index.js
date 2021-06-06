@@ -47,6 +47,10 @@ class Account {
   get balance () {
     return this.balance;
   }
+
+  addTransactions(transaction){
+    this.transactions.push(this.transaction);
+  }
 }
 
 // DRIVER CODE BELOW
