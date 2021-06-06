@@ -41,6 +41,11 @@ class Account {
   constructor(username){
     this.username = username;
     this.balance = 0 ;
+    this.transactions = [];
+  }
+
+  get balance () {
+    return this.balance;
   }
 }
 
