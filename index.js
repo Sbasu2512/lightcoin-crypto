@@ -10,6 +10,17 @@ Don't allow withdrawals that exceed the remaining balance of the account
 */
 //let balance = 500.00;
 
+class Transaction {
+  constructor(amount,account){
+    this.account = account;
+    this.amount = amount;
+  }
+
+  commit() {
+    this.account.balance += this.value;
+  }
+}
+
 class Withdrawal extends Transaction {
 
   get value() {
@@ -30,17 +41,6 @@ class Account {
   constructor(username){
     this.username = username;
     this.balance = 0 ;
-  }
-}
-
-class Transaction {
-  constructor(amount,account){
-    this.account = account;
-    this.amount = amount;
-  }
-
-  commit() {
-    this.account.balance += this.value;
   }
 }
 
