@@ -33,7 +33,13 @@ class deposits {
   }
 }
 
+class Account {
 
+  constructor(username){
+    this.username = username;
+    this.balance = 0 ;
+  }
+}
 
 
 // DRIVER CODE BELOW
@@ -52,3 +58,7 @@ t3.commit();
 console.log('Transaction 3:', t3);
 
 console.log('Balance:', balance);
+
+t4 = new Account("Sayantan Basu");
+console.log(t4.username);
+console.log(t4.balance);
