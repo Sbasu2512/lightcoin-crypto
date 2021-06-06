@@ -8,28 +8,30 @@ Allow us to retrieve the transaction history of an account (all withdrawals and 
 Allow us to retrieve the current balance of the account at any time
 Don't allow withdrawals that exceed the remaining balance of the account
 */
-let balance = 500.00;
+//let balance = 500.00;
 
 class Withdrawal {
 
-  constructor(amount) {
+  constructor(amount, account) {
     this.amount = amount;
+    this.account = account;
   }
 
   commit() {
-    balance -= this.amount;
+    this.account.balance -= this.amount;
   }
 
 }
 
 class deposits {
 
-  constructor(amount){
+  constructor(amount, account){
     this.amount = amount ;
+     this.account = account;
   }
 
   commit(){
-    balance += this.amount;
+    this.account.balance += this.amount;
   }
 }
 
@@ -45,20 +47,12 @@ class Account {
 // DRIVER CODE BELOW
 // We use the code below to "drive" the application logic above and make sure it's working as expected
 
-t1 = new Withdrawal(50.25);
+t1 = new Withdrawal(50.25, myAccount);
 t1.commit();
-console.log('Transaction 1:', t1);
+console.log(`This account belongs to ${t1.username} and the current balance is ${t1.balance}`);
 
-t2 = new Withdrawal(9.99);
-t2.commit();
-console.log('Transaction 2:', t2);
 
-t3 = new deposits(100);
-t3.commit();
-console.log('Transaction 3:', t3);
+// t2 = new Account("Shivanee");
 
-console.log('Balance:', balance);
-
-t4 = new Account("Sayantan Basu");
-console.log(t4.username);
-console.log(t4.balance);
+// t2.commit();
+// console.log(`This account belongs to ${t2.username} and the current balance is ${t2.balance}`);
