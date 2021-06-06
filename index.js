@@ -12,16 +12,16 @@ Don't allow withdrawals that exceed the remaining balance of the account
 
 class Withdrawal extends Transaction {
 
-  commit() {
-    this.account.balance -= this.amount;
+  get value() {
+    return -this.amount;
   }
 
 }
 
 class deposits extends Transaction{
 
-  commit(){
-    this.account.balance += this.amount;
+  get value(){
+    return this.amount ;
   }
 }
 
@@ -36,16 +36,30 @@ class Account {
 class Transaction {
   constructor(amount,account){
     this.account = account;
-    this.amount = amountl
+    this.amount = amount;
+  }
+
+  commit() {
+    this.account.balance += this.value;
   }
 }
 
 // DRIVER CODE BELOW
 // We use the code below to "drive" the application logic above and make sure it's working as expected
 
-t1 = new Withdrawal(50.25, myAccount);
+const myAccount = new Account('billybob');
+
+console.log('Starting Balance:', myAccount.balance);
+
+const t1 = new Deposit(120.00, myAccount);
 t1.commit();
-console.log(`This account belongs to ${t1.username} and the current balance is ${t1.balance}`);
+
+const t2 = new Withdrawal(50.00, myAccount);
+t2.commit();
+
+console.log('Ending Balance:', myAccount.balance);
+
+//console.log(`This account belongs to ${t1.username} and the current balance is ${t1.balance}`);
 
 
 // t2 = new Account("Shivanee");
