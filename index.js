@@ -17,7 +17,8 @@ class Transaction {
   }
 
   commit() {
-    this.account.balance += this.value;
+    this.account = new Date();
+    this.account.addTransaction(this);
   }
 }
 
@@ -45,7 +46,9 @@ class Account {
   }
 
   get balance () {
-    return this.balance;
+    for(ele of this.transactions){
+      this.balance += ele ;
+    }
   }
 
   addTransactions(transaction){
